@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Checklist</title>
+    <link rel="stylesheet" href="app.css" />
+  </head>
+  <body>
+    <div class="Checklist">
+      <div class="title">
+        <img src="./圖片1.png" class="title-icon" />
+        <h1>門市軟體上線檢核表</h1>
+      </div>
+      <!---放實體線--->
+      <hr />
+      <div class="Checklist-table">
+        <table border="1">
+          <tr>
+            <td class="label-cell">品牌名稱</td>
+            <td class="content-cell">八方雲集</td>
+            <td class="label-cell">客戶公司名稱</td>
+            <td class="content-cell">八方雲集</td>
+          </tr>
+
+          <tr>
+            <td class="label-cell">上線日期</td>
+            <td class="content-cell">12/18</td>
+            <td class="label-cell">上線人員</td>
+            <td class="content-cell">周冠廷</td>
+          </tr>
+
+          <tr>
+            <td class="label-cell">門市名稱</td>
+            <td class="content-cell">測試店</td>
+            <td class="label-cell">門市店號</td>
+            <td class="content-cell">9999</td>
+          </tr>
+        </table>
+        <table class="table2">
+          <tr>
+            <td class="label" rowspan="3">版本紀錄</td>
+            <td class="content">POS版本</td>
+            <td class="content">5.50.5</td>
+            <td class="content">傳輸接單</td>
+            <td class="content">2.13.18.1</td>
+          </tr>
+          <tr>
+            <td class="content">KIOSK apk</td>
+            <td class="content"></td>
+            <td class="content">AppTableServer</td>
+            <td class="content"></td>
+          </tr>
+
+          <tr>
+            <td class="content">平板點餐 apk</td>
+            <td class="content"></td>
+            <td class="content">客顯輪播圖片路徑</td>
+            <td class="content"></td>
+          </tr>
+        </table>
+        <table class="table3">
+          <tr>
+            <td class="scope">範圍</td>
+            <td class="label-cell">設定檢核內容</td>
+            <td class="label-cell">備註</td>
+          </tr>
+          <tr>
+            <td class="license-header" rowspan="2">License</td>
+
+            <td class="license-content">
+              <div class="checkbox-item">
+                <input type="checkbox" id="check1" name="pos_check1" />
+                <label for="check1">POS 軟體是否可打開，正常運作</label>
+              </div>
+
+              <div class="checkbox-item">
+                <input type="checkbox" id="check2" name="pos_check2" />
+                <label for="check2">POS 點餐畫面商店名稱(左上角)是否正確</label>
+              </div>
+            </td>
+
+            <td class="empty-cell" rowspan="2"></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>
