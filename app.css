@@ -75,7 +75,7 @@ table {
 
 /* --- Checkbox 優化排列 --- */
 .checkbox-item {
-  display: inline-flex;
+  display: flex;
   align-items: center;
   margin-right: 10px;
   margin-top: 2px;
@@ -94,7 +94,9 @@ table {
   font-size: 13px;
   cursor: pointer;
   line-height: 1.2;
+  margin-right: 10px;
 }
+
 
 @media print {
   /* 1. 強制重置 Flex 佈局，否則 thead 無法重複 */
@@ -129,5 +131,7 @@ table {
 
   @page {
     margin: 1cm; /* 設定列印邊距 */
+
   }
 }
+
