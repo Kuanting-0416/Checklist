@@ -1,85 +1,133 @@
 body {
-  margin: 0; /* 移除瀏覽器預設邊距 */
-  display: flex; /* 啟用 Flexbox */
-  justify-content: center; /* 水平居中 (Horizontal Centering) */
-  min-height: 100vh; /* 設定高度為螢幕視窗的 100% (Viewport Height) */
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
 }
+
+/* --- 核心優化：移除外層干擾 --- */
+.print-wrapper {
+  width: 100%;
+  border-collapse: collapse;
+  border: none; /* 移除最外層邊框 */
+}
+
+/* 確保大表格內部的儲存格不顯示邊框 */
+.print-wrapper > thead > tr > td,
+.print-wrapper > tbody > tr > td {
+  border: none !important; 
+  padding: 0;
+}
+
 .title {
   text-align: center;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 0px;
-  border-bottom: 1px solid #050505; /* 直接在 div 底部畫線 */
-  padding-bottom: 10px;
-  margin-bottom: 10px;
+  padding-bottom: 5px;
+}
+
+.title h1 {
+  display: block;
+  font-size: 20px;
+  margin: 0;
 }
 
 .title-icon {
   width: 87mm;
   height: 11.4mm;
-  margin-right: 1mm;
 }
 
-.Checklist hr {
-  border-bottom: 2px solid #000000;
-  margin-top: 0px;
-  border: 0px;
-}
-
+/* --- 內容表格樣式（保持您的格式） --- */
 table {
   width: 100%;
-  border-collapse: collapse; /* 合併邊框 (Border Collapse) */
+  border-collapse: collapse;
   font-family: sans-serif;
-  text-align: center;
+  margin-bottom: -1px; /* 避免銜接處線條加倍 */
 }
 
-th,
-td {
-  border: 1px solid #000000; /* 設定邊框 (Border) */
-  padding: 8px; /* 內距 (Padding) */
-  text-align: center; /* 文字置中 (Text Alignment) */
+/* 這裡定義所有內容表格的邊框 */
+.Checklist-table table td {
+  border: 1px solid #000000;
+  padding: 6px 8px;
 }
 
 /* 紅色表頭樣式 */
-.label-cell {
-  background-color: #d32f2f; /* 紅色背景 */
-  color: white; /* 白色文字 */
+.label-cell, .label, .scope, .detail, .label-cell2 {
+  background-color: #d32f2f !important;
+  color: white !important;
   font-weight: bold;
-  width: 15%; /* 固定標籤寬度 */
-}
-
-/* 一般內容樣式 */
-.content-cell {
-  width: 25%;
-}
-
-.table2 {
-  width: 100%;
-  border-collapse: collapse; /* 合併邊框 (Border Collapse) */
-  font-family: sans-serif;
   text-align: center;
-  margin-top: 0mm;
-}
-.table2 th,
-.table2 td {
-  border: 1px solid #000000; /* 設定邊框 (Border) */
-  padding: 8px; /* 內距 (Padding) */
-  text-align: center; /* 文字置中 (Text Alignment) */
 }
 
-.label {
-  background-color: #d32f2f; /* 紅色背景 */
-  color: white; /* 白色文字 */
-  font-weight: bold;
-  width: 38.5mm; /* 固定標籤寬度 */
-}
+/* 寬度還原設定 */
+.label-cell { width: 31.5mm; }
+.content-cell { width: 52.5mm;  text-align: center; }
+.label { width: 30.3mm; }
+.content { width: 33mm; font-size: 14px; }
+.scope { width: 20mm; }
+.detail { width: 100mm; }
+.label-cell2, .empty-cell { width: 28.1mm; }
+.POS-header { width: 20mm; font-weight: bold;   text-align: center;}
+.POS-content { width: 100mm; text-align: left; }
+.content-name{width: 31.5mm; font-size: 14px;  text-align: center;}
+.content-val{width: 31.5mm;  text-align: center;}
 
-.content {
-  width: 42mm;
-}
-/* 核取方塊本身和文字的間距 */
-input[type="checkbox"] {
+/* --- Checkbox 優化排列 --- */
+.checkbox-item {
+  display: inline-flex;
+  align-items: center;
   margin-right: 10px;
-  margin-top: 2px; /* 微調以對齊文字 */
+  margin-top: 2px;
+  margin-bottom: 2px;
+  justify-content: flex-start;
+}
+
+.checkbox-item input[type="checkbox"] {
+  width: 13px;
+  height: 13px;
+  margin-right: 4px;
+  cursor: pointer;
+}
+
+.checkbox-item label {
+  font-size: 13px;
+  cursor: pointer;
+  line-height: 1.2;
+}
+
+@media print {
+  /* 1. 強制重置 Flex 佈局，否則 thead 無法重複 */
+  body, html {
+    display: block !important;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* 2. 確保大框架是表格結構 */
+  .print-wrapper {
+    display: table !important;
+    width: 100%;
+  }
+
+  /* 3. 強制頁首重複 */
+  thead {
+    display: table-header-group !important;
+  }
+
+  /* 4. 避免內容在表格內部被截斷 */
+  tr {
+    page-break-inside: avoid;
+  }
+
+  /* 5. 確保背景顏色（紅色表頭）能印出來 */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  @page {
+    margin: 1cm; /* 設定列印邊距 */
+  }
 }
