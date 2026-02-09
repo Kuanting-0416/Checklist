@@ -19,7 +19,7 @@ btn.addEventListener('click', () => {
         StoreName: document.getElementById('StoreName').value,
         StoreNumber: document.getElementById('StoreNumber').value,
         POSVersion: document.getElementById('POSVersion').value,
-        TranferSweborderVersion: document.getElementById('TranferS&weborderVersion').value,
+        TransferSweborderVersion: document.getElementById('TransferS&weborderVersion').value,
         KIOSKVersion: document.getElementById('KIOSKVersion').value,
         ApptableVersion: document.getElementById('ApptableVersion').value,
         orderingApkVersion: document.getElementById('orderingApkVersion').value,

@@ -51,7 +51,7 @@
                   <td class="content-name">POS</td>
                   <td class="content-val" id="POSVersion"></td> <!--POSVersion-->
                   <td class="content-name">傳輸接單</td>
-                  <td class="content-val" id="TranferSweborderVersion"></td> <!--Tranfer&weborderVersion-->
+                  <td class="content-val" id="TransferSweborderVersion"></td> <!--Transfer&weborderVersion-->
                 </tr>
                 <tr>
                   <td class="content-name">KIOSK apk</td>
@@ -109,16 +109,16 @@
                   <td class="POS-header">傳輸接單</td>
                   <td class="POS-content">
                     <div class="checkbox-item">
-                        <label>傳輸/接單設定方式：
-                            <span id="labelConfirmed" class="status-pill">分開</span> / 
-                            <span id="labelNoTable" class="status-pill">統一</span>
+                        <input type="checkbox" id="check10"/>
+                        <label for="check10">傳輸/接單設定方式：
+                            <span id="Separate" class="status-pill">分開</span> / 
+                            <span id="Together" class="status-pill">統一</span>
                         </label>
-                        <input type="checkbox" id="check9" /><label for="check9">加入Teamviewer名單</label>
+                        <input type="checkbox" id="check11" /><label for="check11">加入Teamviewer名單</label>
                     </div>
-                    <div class="checkbox-item">傳輸/接單設定方式 : 分開 / 統一 (請擇一圈選)</div>
                     <div class="checkbox-item">
-                      <input type="checkbox" id="check10" /><label for="check10">傳輸程式正常</label>
-                      <input type="checkbox" id="check11" /><label for="check11">接單程式正常</label></div>
+                      <input type="checkbox" id="check12" /><label for="check12">傳輸程式正常</label>
+                      <input type="checkbox" id="check13" /><label for="check13">接單程式正常</label></div>
                   </td>
                   <td class="empty-cell"></td>
                 </tr>
@@ -127,12 +127,12 @@
                   <td class="POS-header">排程</td>
                   <td class="POS-content">
                     <div class="checkbox-item">
-                      <input type="checkbox" id="check12" /><label for="check12">DBBackup</label>
-                      <input type="checkbox" id="check13" /><label for="check13">電子發票</label>
+                      <input type="checkbox" id="check14" /><label for="check14">DBBackup</label>
+                      <input type="checkbox" id="check15" /><label for="check15">電子發票</label>
                     </div>
                     <div class="checkbox-item">
-                      <input type="checkbox" id="check14" /><label for="check14">會員點數</label>
-                      <input type="checkbox" id="check15" /><label for="check15">票券</label>
+                      <input type="checkbox" id="check16" /><label for="check16">會員點數</label>
+                      <input type="checkbox" id="check17" /><label for="check17">票券</label>
                     </div>
                   </td>
                   <td class="empty-cell"></td>
@@ -142,8 +142,8 @@
                   <td class="POS-header">平板</td>
                   <td class="POS-content">
                     <div class="checkbox-item">
-                      <input type="checkbox" id="check16" /><label for="check16">平板授權設定</label>
-                      <input type="checkbox" id="check17" /><label for="check17">加入Teamviewer名單</label>
+                      <input type="checkbox" id="check18" /><label for="check18">平板授權設定</label>
+                      <input type="checkbox" id="check19" /><label for="check19">加入Teamviewer名單</label>
                     </div>
                   </td>
                   <td class="empty-cell"></td>
@@ -153,11 +153,11 @@
                   <td class="POS-header">KIOSK</td>
                   <td class="POS-content">
                     <div class="checkbox-item">
-                      <input type="checkbox" id="check18" /><label for="check18">Autykey設定</label>
-                      <input type="checkbox" id="check19" /><label for="check19">店號設定</label>
-                      <input type="checkbox" id="check20" /><label for="check20">加入Teamviewer名單</label>
+                      <input type="checkbox" id="check20" /><label for="check20">Autykey設定</label>
+                      <input type="checkbox" id="check21" /><label for="check21">店號設定</label>
+                      <input type="checkbox" id="check22" /><label for="check22">加入Teamviewer名單</label>
                     </div>
-                    <div class="checkbox-item"><input type="checkbox" id="check21" /><label for="check21">菜單/價格/圖片(商品圖片/LOGO/輪播圖)確認</label></div>
+                    <div class="checkbox-item"><input type="checkbox" id="check23" /><label for="check23">菜單/價格/圖片(商品圖片/LOGO/輪播圖)確認</label></div>
                   </td>
                   <td class="empty-cell"></td>
                 </tr>
@@ -165,16 +165,16 @@
                 <tr>
                   <td class="POS-header">UniKDS</td>
                   <td class="POS-content">
-                    <div class="checkbox-item"><input type="checkbox" id="check22" /><label for="check22">FindTbox IP 是否正確</label></div>
-                    <div class="checkbox-item"><input type="checkbox" id="check23" /><label for="check23">POS中KDS設定IP是否與FindTbox中相同</label></div>
+                    <div class="checkbox-item"><input type="checkbox" id="check24" /><label for="check24">FindTbox IP 是否正確</label></div>
+                    <div class="checkbox-item"><input type="checkbox" id="check25" /><label for="check25">POS中KDS設定IP是否與FindTbox中相同</label></div>
                     <div class="checkbox-item">是否使用電視：
-                      <input type="checkbox" id="check24" /><label for="check24">否</label>
-                      <input type="checkbox" id="check25" /><label for="check25">是，Uni叫號 / XSign叫號</label>
+                      <input type="checkbox" id="check26" /><label for="check26">否</label>
+                      <input type="checkbox" id="check26" /><label for="check27">是，Uni叫號 / XSign叫號</label>
                     </div>
                     <div class="checkbox-item">
-                      <input type="checkbox" id="check26" /><label for="check26">若使用XSign : </label>
-                      <input type="checkbox" id="check27" /><label for="check27">勾選使用Tbox</label>
-                      <input type="checkbox" id="check28" /><label for="check28">客顯URL</label>
+                      <input type="checkbox" id="check28" /><label for="check28">若使用XSign : </label>
+                      <input type="checkbox" id="check29" /><label for="check29">勾選使用Tbox</label>
+                      <input type="checkbox" id="check30" /><label for="check30">客顯URL</label>
                     </div>
                   </td>
                   <td class="empty-cell"></td>
@@ -184,16 +184,16 @@
                   <td class="POS-header">XSign叫號機</td>
                   <td class="POS-content">
                     <div class="checkbox-item">
-                      <input type="checkbox" id="check29" /><label for="check29">傳送安裝檔與資料檔</label>
-                      <input type="checkbox" id="check30" /><label for="check30">XSign電視機器碼綁定</label>
+                      <input type="checkbox" id="check31" /><label for="check31">傳送安裝檔與資料檔</label>
+                      <input type="checkbox" id="check32" /><label for="check32">XSign電視機器碼綁定</label>
                     </div>
                     <div class="checkbox-item">
-                      <input type="checkbox" id="check31" /><label for="check31">BenQTTSDemo 設定</label>
-                      <input type="checkbox" id="check32" /><label for="check32">d/node.js 設定</label>
+                      <input type="checkbox" id="check33" /><label for="check33">BenQTTSDemo 設定</label>
+                      <input type="checkbox" id="check34" /><label for="check34">d/node.js 設定</label>
                     </div>
                     <div class="checkbox-item">
-                      <input type="checkbox" id="check33" /><label for="check33">KDSReader 設定</label>
-                      <input type="checkbox" id="check34" /><label for="check34">加入Teamviewer名單</label>
+                      <input type="checkbox" id="check35" /><label for="check35">KDSReader 設定</label>
+                      <input type="checkbox" id="check36" /><label for="check36">加入Teamviewer名單</label>
                     </div>
                   </td>
                   <td class="empty-cell"></td>
@@ -203,27 +203,27 @@
                   <td class="POS-header">叫號機</td>
                   <td class="POS-content">
                     <div class="checkbox-item">
-                      <input type="checkbox" id="check35" /><label for="check35">傳送UniKDS apk</label>
-                      <input type="checkbox" id="check36" /><label for="check36">安裝UniKDS apk</label>
+                      <input type="checkbox" id="check37" /><label for="check37">傳送UniKDS apk</label>
+                      <input type="checkbox" id="check38" /><label for="check38">安裝UniKDS apk</label>
                     </div>
                     <div class="checkbox-item">
-                      <input type="checkbox" id="check37" /><label for="check37">勾選使用Tbox、訂單叫號</label>
-                      <input type="checkbox" id="check38" /><label for="check38">變更UniKDS角色</label>
+                      <input type="checkbox" id="check39" /><label for="check39">勾選使用Tbox、訂單叫號</label>
+                      <input type="checkbox" id="check40" /><label for="check40">變更UniKDS角色</label>
                     </div>
-                    <div class="checkbox-item"><input type="checkbox" id="check39" /><label for="check39">顯示風格輸入CallingMode tv</label></div>
-                    <div class="checkbox-item"><input type="checkbox" id="check40" /><label for="check40">加入Teamviewer名單</label></div>
+                    <div class="checkbox-item"><input type="checkbox" id="check41" /><label for="check41">顯示風格輸入CallingMode tv</label></div>
+                    <div class="checkbox-item"><input type="checkbox" id="check42" /><label for="check42">加入Teamviewer名單</label></div>
                   </td>
                   <td class="empty-cell"></td>
                 </tr>
 
                 <tr>
                   <td class="POS-header"></td>
-                  <td class="POS-content"><div class="checkbox-item"><input type="checkbox" id="check41" /><label for="check41"></label></div></td>
+                  <td class="POS-content"><div class="checkbox-item"><input type="checkbox" id="check43" /><label for="check43"></label></div></td>
                   <td class="empty-cell"></td>
                 </tr>
                 <tr>
                   <td class="POS-header"></td>
-                  <td class="POS-content"><div class="checkbox-item"><input type="checkbox" id="check42" /><label for="check42"></label></div></td>
+                  <td class="POS-content"><div class="checkbox-item"><input type="checkbox" id="check44" /><label for="check44"></label></div></td>
                   <td class="empty-cell"></td>
                 </tr>
               </table>

@@ -20,3 +20,31 @@ if (rawData) {
 } else {
     console.error("在 sessionStorage 中找不到 'myData'");
 };
+
+const confirmed = document.getElementById("labelConfirmed");
+const notable = document.getElementById("labelNoTable");
+
+confirmed.addEventListener("click", () => {
+  confirmed.classList.add("active-confirmed");
+  notable.classList.remove("active-notable");
+});
+
+notable.addEventListener("click", () => {
+  notable.classList.add("active-notable");
+  confirmed.classList.remove("active-confirmed");
+});
+
+
+const Separate = document.getElementById('Separate');
+const Together = document.getElementById('Together');
+
+Separate.addEventListener("click", () => {
+  Separate.classList.add("active-Separate");
+  Together.classList.remove("active-Together");
+});
+
+Together.addEventListener("click", () => {
+  Together.classList.add("active-Together");
+  Separate.classList.remove("active-Separate");
+});
+
