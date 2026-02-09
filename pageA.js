@@ -17,7 +17,13 @@ btn.addEventListener('click', () => {
         date: document.getElementById('date').value,
         personnel: document.getElementById('personnel').value,
         StoreName: document.getElementById('StoreName').value,
-        StoreNumber: document.getElementById('StoreNumber').value
+        StoreNumber: document.getElementById('StoreNumber').value,
+        POSVersion: document.getElementById('POSVersion').value,
+        TranferSweborderVersion: document.getElementById('TranferS&weborderVersion').value,
+        KIOSKVersion: document.getElementById('KIOSKVersion').value,
+        ApptableVersion: document.getElementById('ApptableVersion').value,
+        orderingApkVersion: document.getElementById('orderingApkVersion').value,
+        customerDisplayPath: document.getElementById('customerDisplayPath').value
     };
 
     // 2. 將物件轉為 JSON 字串

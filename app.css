@@ -97,6 +97,37 @@ table {
   margin-right: 10px;
 }
 
+.status-pill {
+  padding-left: 3mm;
+  border-radius: 50px;
+  font-size: 14px;
+  font-weight: bold;
+  /*display: inline-block;*/
+  transition: all 0.3s ease;
+  color: #000000;
+  background-color: white;
+  margin: 0mm;
+  }
+        
+        /* 已確認：亮紅燈 */
+.active-confirmed {
+  color: white;
+  background-color: #dc3545;
+  box-shadow: 0 0 10px rgba(220, 53, 69, 0.6);
+  color: #000000;
+  }
+        
+        /* 無桌況：亮紅燈 */
+.active-notable {
+  color: white;
+  background-color: #dc3545;
+  box-shadow: 0 0 10px rgba(220, 53, 69, 0.6);
+  color: #000000;
+ }
+
+ #check8{
+    display: none;  
+}
 
 @media print {
   /* 1. 強制重置 Flex 佈局，否則 thead 無法重複 */

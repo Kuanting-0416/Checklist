@@ -7,19 +7,113 @@
     <link rel="stylesheet" href="./Form.css" />
 </head>
 <body>
-    <div>
-        <div>品牌名稱：<input type="text" id="BrandName" placeholder="請輸入品牌名稱"></div>
-        <div>公司名稱：<input type="text" id="CompanyName" placeholder="請輸入公司名稱"></div>
+<div class="container">
+        <div class="header">
+            <h1>連鎖門市上線資訊表單</h1>
+            <p>請填寫完整的門市系統上線資訊</p>
+        </div>
+
+        <div class="form-content">
+            <form id="onlineForm">
+                <!-- 基本資訊 -->
+                <div class="section">
+                    <div class="section-title">📋 基本資訊</div>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="BrandName">品牌名稱 <span class="required">*</span></label>
+                            <input type="text" id="BrandName" placeholder="例：星益欣數位服務" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="CompanyName">公司名稱 <span class="required">*</span></label>
+                            <input type="text" id="CompanyName" placeholder="例：明基佳世達集團" required>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 上線資訊 -->
+                <div class="section">
+                    <div class="section-title">📅 上線資訊</div>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="date">上線日期 <span class="required">*</span></label>
+                            <input type="date" id="date" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="personnel">上線人員 <span class="required">*</span></label>
+                            <input type="text" id="personnel" placeholder="例：周冠廷" required>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 門市資訊 -->
+                <div class="section">
+                    <div class="section-title">🏪 門市資訊</div>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="StoreName">門市名稱 <span class="required">*</span></label>
+                            <input type="text" id="StoreName" placeholder="例：台南總公司" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="StoreNumber">門市代號 <span class="required">*</span></label>
+                            <input type="text" id="StoreNumber" placeholder="例：01" required>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 系統版本 -->
+                <div class="section">
+                    <div class="section-title">💻 系統版本</div>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="POSVersion">POS 版本 <span class="required">*</span></label>
+                            <input type="text" id="POSVersion" placeholder="" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="TranferS&weborderVersion">傳輸接單版本 <span class="required">*</span></label>
+                            <input type="text" id="TranferS&weborderVersion" placeholder="" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="KIOSKVersion">KIOSK APK</label>
+                            <input type="text" id="KIOSKVersion" placeholder="">
+                        </div>
+                        <div class="form-group">
+                            <label for="ApptableVersion">Apptableserver</label>
+                            <input type="text" id="ApptableVersion" placeholder="">
+                        </div>
+                        <div class="form-group">
+                            <label for="orderingApkVersion">平板點餐 APK</label>
+                            <input type="text" id="orderingApkVersion" placeholder="">
+                        </div>
+                        <div class="form-group">
+                            <label for="customerDisplayPath">輪播路徑</label>
+                            <input type="text" id="customerDisplayPath" placeholder="">
+                        </div>
+                    </div>
+                </div>
+
+                <!--桌況確認-->
+
+                <!--傳輸確認-->
+
+                <!-- 按鈕區 -->
+                <div class="button-container">
+                    <button type="button" class="button button-secondary" onclick="resetForm()">
+                        <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+                        </svg>
+                        確認送出
+                    </button>
+                    <button type="submit" class="button button-primary" id="submitBtn">
+                        <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        重新填寫
+                    </button>
+                </div>
+            </form>
+        </div>
     </div>
-    <div>
-        <div>上線日期：<input type="text" id="date" placeholder="請輸入上線日期"></div>
-        <div>上線人員：<input type="text" id="personnel" placeholder="請輸入上線人員名稱"></div>
-    </div>
-    <div>
-        <div>門市名稱：<input type="text" id="StoreName" placeholder="請輸入門市名稱"></div>
-        <div>門市代號：<input type="text" id="StoreNumber" placeholder="請輸入門市代號"></div>
-    </div>
-    <button type="button" class="button">確認送出</button>
+
     <script src="./pageA.js"></script>
 </body>
 </html>
