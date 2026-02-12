@@ -21,6 +21,7 @@ if (rawData) {
     console.error("在 sessionStorage 中找不到 'myData'");
 };
 
+/*桌況選擇監控 點選產生顏色*/
 const confirmed = document.getElementById("labelConfirmed");
 const notable = document.getElementById("labelNoTable");
 
@@ -34,7 +35,7 @@ notable.addEventListener("click", () => {
   confirmed.classList.remove("active-confirmed");
 });
 
-
+/*傳輸接單選擇監控 點選產生顏色*/
 const Separate = document.getElementById('Separate');
 const Together = document.getElementById('Together');
 
@@ -47,4 +48,3 @@ Together.addEventListener("click", () => {
   Together.classList.add("active-Together");
   Separate.classList.remove("active-Separate");
 });
-
