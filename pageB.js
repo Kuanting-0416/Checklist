@@ -48,3 +48,12 @@ Together.addEventListener("click", () => {
   Together.classList.add("active-Together");
   Separate.classList.remove("active-Separate");
 });
+
+/*設定btn-forms 回到forms*/
+const backBtn = document.querySelector('.btn-forms');
+
+// 監聽點擊事件
+backBtn.addEventListener('click', function() {
+  // 將引號內的網址換成你要返回的頁面路徑
+  window.location.href = 'Form.html'; 
+});

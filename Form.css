@@ -156,28 +156,28 @@
             gap: 0.5rem;
         }
 
-        .button-primary {
+        .button-Senddata {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             box-shadow: var(--shadow-md);
         }
 
-        .button-primary:hover {
+        .button-Senddata:hover {
             transform: translateY(-2px);
             box-shadow: var(--shadow-lg);
         }
 
-        .button-primary:active {
+        .button-Senddata:active {
             transform: translateY(0);
         }
 
-        .button-secondary {
+        .button-Cleardata {
             background: white;
             color: var(--text-primary);
             border: 2px solid var(--border);
         }
 
-        .button-secondary:hover {
+        .button-Cleardata:hover {
             background: var(--background);
         }
 

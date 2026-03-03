@@ -1,218 +1,310 @@
-body {
+/* ========== Reset ========== */
+* {
+  box-sizing: border-box;
   margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Microsoft JhengHei", "PingFang TC", "Noto Sans TC", sans-serif;
+  font-size: 11pt;
+  background: #f0f0f0;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   min-height: 100vh;
 }
 
-/* --- 核心優化：移除外層干擾 --- */
+/* ========== 列印按鈕（最上方，列印時隱藏） ========== */
+.btn-bar {
+  width: 210mm;
+  text-align: center;
+  padding: 12px 0;
+  background: #f0f0f0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.btn-print , .btn-forms{
+  padding: 8px 28px;
+  background: #d32f2f;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 11pt;
+  font-weight: bold;
+  cursor: pointer;
+  font-family: inherit;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+.btn-print:hover {
+  background: #b71c1c;
+}
+
+/* ========== 主容器 ========== */
+.Checklist {
+  width: 210mm;
+  background: #fff;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.18);
+  margin-bottom: 20px;
+}
+
+/* ========== 列印大框架表格 ========== */
 .print-container {
   width: 100%;
   border-collapse: collapse;
-  border: none; /* 移除最外層邊框 */
+  border: none;
 }
 
-/* 確保大表格內部的儲存格不顯示邊框 */
+/* thead / tfoot 外框儲存格不顯示邊框 */
 .print-container > thead > tr > td,
-.print-container > tbody > tr > td,
-.print-container > tfoot > tr > td {
-  border: none !important; 
+.print-container > tfoot > tr > td,
+.print-container > tbody > tr > td {
+  border: none !important;
+  padding: 0;
 }
 
+/* ========== 頁首樣式 ========== */
 .title {
-  text-align: center;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-bottom: 5px;
+  padding: 8px 10mm 6px 10mm;
+  border-bottom: 2px solid #d32f2f;
 }
 
 .title h1 {
-  display: block;
-  font-size: 20px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #d32f2f;
   margin: 0;
+  flex: 1;
+  text-align: center;
 }
 
 .title-icon {
   width: 87mm;
   height: 11.4mm;
+  object-fit: contain;
 }
 
-/* --- 內容表格樣式（保持您的格式） --- */
+/* ========== 頁尾樣式 ========== */
+.form-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 10mm;
+  border-top: 2px solid #d32f2f;
+  font-size: 8.5pt;
+  color: #444;
+}
+
+/* ========== 主內容區域 ========== */
+.Checklist-table {
+  padding: 5mm 10mm;
+}
+
+/* ========== 所有內容表格共用 ========== */
 table {
   width: 100%;
   border-collapse: collapse;
-  font-family: sans-serif;
-  margin-bottom: -1px; /* 避免銜接處線條加倍 */
+  font-family: inherit;
+  margin-bottom: -1px;
 }
 
-/* 主容器定義 */
-.Checklist {
-  position: relative;  
-  padding-bottom: 20mm; 
-}
-
-/* 這裡定義所有內容表格的邊框 */
 .Checklist-table table td {
-  border: 1px solid #000000;
-  padding: 6px 8px;
+  border: 1px solid #000;
+  padding: 7px 8px;           
+  vertical-align: middle;
+  line-height: 1.4;
 }
 
-/* 紅色表頭樣式 */
-.label-cell, .label, .scope, .detail, .label-cell2 {
+/* ========== 紅色表頭 ========== */
+.label-cell, .label, .scope, .detail, .label-cell2{
   background-color: #d32f2f !important;
   color: white !important;
   font-weight: bold;
   text-align: center;
 }
 
-/* 寬度設定 */
-.label-cell { width: 31.5mm; }
-.content-cell { width: 52.5mm;  text-align: center; }
-.label { width: 30.3mm; }
-.content { width: 33mm; font-size: 14px; }
-.scope { width: 20mm; }
-.detail { width: 100mm; }
-.label-cell2, .empty-cell { width: 28.1mm; }
-.POS-header { width: 20mm; font-weight: bold;   text-align: center;}
-.POS-content { width: 100mm; text-align: left; }
-.content-name{width: 31.5mm; font-size: 14px;  text-align: center;}
-.content-val{width: 31.5mm;  text-align: center;}
+/* ========== 欄寬設定 ========== */
+.label-cell   { width: 31.5mm; }
+.content-cell { width: 52.5mm; text-align: center; }
+.label        { width: 29.1mm; }
+.content      { width: 33mm;   font-size: 13px; }
+.scope        { width: 20mm; }
+.detail       { width: 100mm; }
+.label-cell2,
+.empty-cell   { width: 30.4mm; }
+.POS-header   { width: 20mm; font-weight: bold; text-align: center; background-color: #f5f5f5; }
+.POS-content  { text-align: left; }
+.content-name { width: 31.5mm; font-size: 13px; text-align: center; }
+.content-val  { width: 31.5mm; text-align: center; }
 
-/* --- Checkbox 優化排列 --- */
+/* ========== 頁間隔（跨頁區塊上方留白） ========== */
+.section-gap-page {
+  margin-top: 4px;
+}
+
+/* ========== 金流檢核：POS / KIOSK 檢核欄 ========== */
+.col-check {
+  width: 18mm;
+  text-align: center;
+  vertical-align: middle;
+}
+
+/* ========== 軟體/正式使用：單一檢核欄 ========== */
+.col-check-wide {
+  width: 22mm;
+  text-align: center;
+  vertical-align: middle;
+}
+
+/* ========== 簽名區 ========== */
+.sig-table td {
+  border: 1px solid #000;
+  padding: 5px 8px;
+  vertical-align: middle;
+}
+.sig-label {
+  background-color: #d32f2f !important;
+  color: white !important;
+  font-weight: bold;
+  text-align: center;
+  width: 28mm;
+}
+.sig-value {
+  height: 12mm;
+  min-width: 50mm;
+}
+.sig-spacer {
+  width: 8mm;
+  border: none !important;
+  background: transparent !important;
+}
+
+/* ========== Checkbox 排列 ========== */
 .checkbox-item {
   display: flex;
   align-items: center;
-  margin-right: 10px;
-  margin-top: 2px;
-  margin-bottom: 2px;
-  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 2px 6px;
+  margin: 2px 0;
 }
 
 .checkbox-item input[type="checkbox"] {
   width: 13px;
   height: 13px;
-  margin-right: 4px;
   cursor: pointer;
+  flex-shrink: 0;
 }
 
 .checkbox-item label {
   font-size: 13px;
   cursor: pointer;
-  line-height: 1.2;
-  margin-right: 10px;
+  line-height: 1.3;
 }
 
+/* ========== 狀態 Pill ========== */
 .status-pill {
   border-radius: 50px;
-  font-size: 14px;
+  font-size: 12px;
   font-weight: bold;
-  transition: all 0.3s ease;
-  color: #000000;
-  background-color: white;
-  margin: 0mm;
+  padding: 1px 8px;
+  transition: all 0.2s ease;
+  color: #000;
+  background-color: #eee;
+  border: 1px solid #bbb;
   cursor: pointer;
   user-select: none;
 }
 
-/* 已確認：亮紅燈 */
-.active-confirmed {
-  color: white;
-  background-color: #dc3545;
-  box-shadow: 0 0 10px rgba(220, 53, 69, 0.6);
-}
-
-/* 無桌況：亮紅燈 */
-.active-notable {
-  color: white;
-  background-color: #dc3545;
-  box-shadow: 0 0 10px rgba(220, 53, 69, 0.6);
-}
-
-/* 傳輸接單一起：亮紅燈 */
-.active-Separate {
-  color: white;
-  background-color: #dc3545;
-  box-shadow: 0 0 10px rgba(220, 53, 69, 0.6);
-}
-
-/* 傳輸接單分開：亮紅燈 */
+.active-confirmed,
+.active-notable,
+.active-Separate,
 .active-Together {
-  color: white;
-  background-color: #dc3545;
-  box-shadow: 0 0 10px rgba(220, 53, 69, 0.6);
+  color: white !important;
+  background-color: #d32f2f !important;
+  border-color: #d32f2f !important;
+  box-shadow: 0 0 6px rgba(211, 47, 47, 0.5);
 }
 
- #check8, #check10{
-    display: none;  
+/* 隱藏被 status-pill 取代的 checkbox */
+#check8, #check10 {
+  display: none;
 }
 
-.content {
-  padding-bottom: 20mm; /* 預留 footer 空間 */
-}
-
-
-/* ===== Footer 固定在 A4 底部 ===== */
-.form-footer {
-  position: absolute;  
-  left: 0;
-  right: 0;
-  display: flex;
-  justify-content: space-between;
-  bottom: 15mm;
-}
-
-
+/* ========== 列印設定 ========== */
 @media print {
-  /* 1. 強制重置 Flex 佈局，否則 thead 無法重複 */
   body, html {
     display: block !important;
-    width: 100%;
+    background: none;
     margin: 0;
     padding: 0;
   }
 
-  /* 2. 確保大框架是表格結構 */
- .print-container {
+  .btn-bar {
+    display: none !important;
+  }
+
+  .Checklist {
+    width: 100%;
+    box-shadow: none;
+    margin: 0;
+  }
+
+  .print-container {
     display: table !important;
   }
 
-  /* 強制頁首重複 */
   thead {
     display: table-header-group !important;
   }
 
   tfoot {
-    display: table-footer-group !important;  
+    display: table-footer-group !important;
   }
 
-  /* 4. 避免內容在表格內部被截斷 */
   tr {
     page-break-inside: avoid;
   }
 
-  /* 5. 確保背景顏色（紅色表頭）能印出來 */
   * {
     -webkit-print-color-adjust: exact !important;
     print-color-adjust: exact !important;
   }
 
-  /*頁尾重複顯示*/
-  .form-footer {
-        position: fixed;   /* 改成 fixed，每頁都會顯示 */
-        bottom: 0;
-    }
-
   @page {
     size: A4;
     margin: 10mm;
-
   }
 }
 
-/* ======20260212修正內容========
-1.CSS調整
-2.新增主容器定義
-3.調整頁尾列印樣式(有bug 在最下面按列印會無法顯示 在最上面按列印就正常)
-4.調整CSS名稱錯誤問題
-*/
+/* ========== 修訂紀錄 ==========
+  20260212 V01
+    1. CSS 調整
+    2. 新增主容器定義
+    3. 調整頁尾列印樣式
+    4. 調整 CSS 名稱錯誤問題
+
+  20260303 V02
+    1. 列印按鈕移至頁面最上方（sticky）
+    2. 移除 form-footer position:absolute/fixed，改由 tfoot 控制
+    3. 全面整合樣式，移除重複定義
+    4. 頁首頁尾改由 thead/tfoot 每頁自動重複
+    5. 新增列印功能按鈕
+
+  20260303 V03
+    1. 手動調整三個區塊列高
+       - 所有列：padding 6px 8px、line-height 1.85
+       - .label 欄寬調整為 29.1mm
+       - .empty-cell / .label-cell2 調整為 30.4mm
+
+  20260303 V04
+    1. 新增第二頁：金流檢核、軟體流程測試
+    2. 新增第三頁：正式使用檢核、備忘錄、簽名區
+    3. 新增 .col-check / .col-check-wide / .sig-table 等 class
+    4. 顏色統一為 #d32f2f 紅色主題
+================================= */

@@ -6,10 +6,16 @@ Allbuttons.forEach((button) => {
   });
 });
 
-const btn = document.querySelector('.button');
+const Senddata = document.querySelector('.button-Senddata');
+const Claerdata = document.querySelector('.button-Claerdata');
+
+/*設定按鍵，重整網頁、清空資料*/
+Claerdata.addEventListener('click' , () =>{
+  location.reload();
+})
 
 
-btn.addEventListener('click', () => {
+Senddata.addEventListener('click', () => {
     // 1. 抓取所有欄位的數值並組合成物件
     const formData = {
         BrandName: document.getElementById('BrandName').value,
