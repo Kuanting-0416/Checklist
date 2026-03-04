@@ -8,441 +8,439 @@
 </head>
 <body>
 
-
 <div class="btn-bar">
   <button class="btn btn-print" onclick="window.print()">🖨️ 列印 / 儲存PDF</button>
   <button class="btn btn-forms">🐳返回表單</button>
 </div>
 
 <div class="Checklist">
+
+  <!-- ════════════════════════════════
+       第一頁：基本資訊 + 版本紀錄 + 設定檢核
+       ════════════════════════════════ -->
   <table class="print-container">
-
-    <!-- ===== 頁首（每頁重複） ===== -->
     <thead>
-      <tr>
-        <td>
-          <div class="title">
-            <img src="./圖片1.png" class="title-icon" />
-            <h1>門市軟體上線檢核表</h1>
-          </div>
-        </td>
-      </tr>
+      <tr><td>
+        <div class="title">
+          <img src="./圖片1.png" class="title-icon" />
+          <h1>門市軟體上線檢核表</h1>
+        </div>
+      </td></tr>
     </thead>
-
-    <!-- ===== 頁尾（每頁重複） ===== -->
     <tfoot>
-      <tr>
-        <td>
-          <footer class="form-footer">
-            <div class="footer-left">表單編號：WiXtar-SF-007　版序：V01</div>
-            <div class="footer-center">
-              第 <span class="current-page">1</span> 頁，共 <span class="total-pages">1</span> 頁
-            </div>
-            <div class="footer-right">實施日期：2024/07/30</div>
-          </footer>
-        </td>
-      </tr>
+      <tr><td>
+        <footer class="form-footer">
+          <div class="footer-left">表單編號：WiXtar-SF-007　版序：V01</div>
+          <div class="footer-center">第 1 頁，共 3 頁</div>
+          <div class="footer-right">實施日期：2024/07/30</div>
+        </footer>
+      </td></tr>
     </tfoot>
-
-    <!-- ===== 主內容 ===== -->
     <tbody>
-      <tr>
-        <td>
-          <div class="Checklist-table">
+      <tr><td>
+        <div class="Checklist-table">
 
-            <!-- ── 基本資訊 ── -->
-            <table>
-              <tr>
-                <td class="label-cell">品牌名稱</td>
-                <td class="content-cell" id="BrandName"></td>
-                <td class="label-cell">客戶公司名稱</td>
-                <td class="content-cell" id="CompanyName"></td>
-              </tr>
-              <tr>
-                <td class="label-cell">上線日期</td>
-                <td class="content-cell" id="date"></td>
-                <td class="label-cell">上線人員</td>
-                <td class="content-cell" id="personnel"></td>
-              </tr>
-              <tr>
-                <td class="label-cell">門市名稱</td>
-                <td class="content-cell" id="StoreName"></td>
-                <td class="label-cell">門市店號</td>
-                <td class="content-cell" id="StoreNumber"></td>
-              </tr>
-            </table>
+          <!-- 基本資訊 -->
+          <table>
+            <tr>
+              <td class="label-cell">品牌名稱</td>
+              <td class="content-cell" id="BrandName"></td>
+              <td class="label-cell">客戶公司名稱</td>
+              <td class="content-cell" id="CompanyName"></td>
+            </tr>
+            <tr>
+              <td class="label-cell">上線日期</td>
+              <td class="content-cell" id="date"></td>
+              <td class="label-cell">上線人員</td>
+              <td class="content-cell" id="personnel"></td>
+            </tr>
+            <tr>
+              <td class="label-cell">門市名稱</td>
+              <td class="content-cell" id="StoreName"></td>
+              <td class="label-cell">門市店號</td>
+              <td class="content-cell" id="StoreNumber"></td>
+            </tr>
+          </table>
 
-            <!-- ── 版本紀錄 ── -->
-            <table class="table-v">
-              <tr>
-                <td class="label" rowspan="3">版本紀錄</td>
-                <td class="content-name">POS</td>
-                <td class="content-val" id="POSVersion"></td>
-                <td class="content-name">傳輸接單</td>
-                <td class="content-val" id="TransferSweborderVersion"></td>
-              </tr>
-              <tr>
-                <td class="content-name">KIOSK apk</td>
-                <td class="content-val" id="KIOSKVersion"></td>
-                <td class="content-name">AppTableServer</td>
-                <td class="content-val" id="ApptableVersion"></td>
-              </tr>
-              <tr>
-                <td class="content-name">平板點餐apk</td>
-                <td class="content-val" id="orderingApkVersion"></td>
-                <td class="content-name">客顯輪播圖片路徑</td>
-                <td class="content-val" id="customerDisplayPath"></td>
-              </tr>
-            </table>
+          <!-- 版本紀錄 -->
+          <table class="table-v">
+            <tr>
+              <td class="label" rowspan="3">版本紀錄</td>
+              <td class="content-name">POS</td>
+              <td class="content-val" id="POSVersion"></td>
+              <td class="content-name">傳輸接單</td>
+              <td class="content-val" id="TransferSweborderVersion"></td>
+            </tr>
+            <tr>
+              <td class="content-name">KIOSK apk</td>
+              <td class="content-val" id="KIOSKVersion"></td>
+              <td class="content-name">AppTableServer</td>
+              <td class="content-val" id="ApptableVersion"></td>
+            </tr>
+            <tr>
+              <td class="content-name">平板點餐apk</td>
+              <td class="content-val" id="orderingApkVersion"></td>
+              <td class="content-name">客顯輪播圖片路徑</td>
+              <td class="content-val" id="customerDisplayPath"></td>
+            </tr>
+          </table>
 
-            <!-- ── 設定檢核 ── -->
-            <table class="item-table">
-              <!-- 表頭 -->
-              <tr class="header-row">
-                <td class="scope">範圍</td>
-                <td class="detail">設定檢核內容</td>
-                <td class="label-cell2">備註</td>
-              </tr>
+          <!-- 設定檢核 -->
+          <table class="item-table">
+            <tr class="header-row">
+              <td class="scope">範圍</td>
+              <td class="detail">設定檢核內容</td>
+              <td class="label-cell2">備註</td>
+            </tr>
+            <tr>
+              <td class="POS-header">License</td>
+              <td class="POS-content">
+                <div class="checkbox-item"><input type="checkbox" id="check1" /><label for="check1">POS 軟體是否可打開，正常運作</label></div>
+                <div class="checkbox-item"><input type="checkbox" id="check2" /><label for="check2">POS 點餐畫面商店名稱(左上角)是否正確</label></div>
+              </td>
+              <td class="empty-cell"></td>
+            </tr>
+            <tr>
+              <td class="POS-header">POS基本設定</td>
+              <td class="POS-content">
+                <div class="checkbox-item">
+                  <input type="checkbox" id="check3" /><label for="check3">店號</label>
+                  <input type="checkbox" id="check4" /><label for="check4">機號</label>
+                  <input type="checkbox" id="check5" /><label for="check5">菜單內容與價格確認</label>
+                </div>
+                <div class="checkbox-item"><input type="checkbox" id="check6" /><label for="check6">POS發票抬頭 – LOGO / 文字 (請擇一圈選)</label></div>
+                <div class="checkbox-item"><input type="checkbox" id="check7" /><label for="check7">KIOSK 發票抬頭 – 文字</label></div>
+                <div class="checkbox-item">
+                  <input type="checkbox" id="check8" />
+                  <label for="check8">桌況 –
+                    <span id="labelConfirmed" class="status-pill">已確認</span> /
+                    <span id="labelNoTable" class="status-pill">無桌況</span>
+                  </label>
+                  <input type="checkbox" id="check9" /><label for="check9">加入Teamviewer名單</label>
+                </div>
+              </td>
+              <td class="empty-cell"></td>
+            </tr>
+            <tr>
+              <td class="POS-header">傳輸接單</td>
+              <td class="POS-content">
+                <div class="checkbox-item">
+                  <input type="checkbox" id="check10" />
+                  <label for="check10">傳輸/接單設定方式：
+                    <span id="Separate" class="status-pill">分開</span> /
+                    <span id="Together" class="status-pill">統一</span>
+                  </label>
+                  <input type="checkbox" id="check11" /><label for="check11">加入Teamviewer名單</label>
+                </div>
+                <div class="checkbox-item">
+                  <input type="checkbox" id="check12" /><label for="check12">傳輸程式正常</label>
+                  <input type="checkbox" id="check13" /><label for="check13">接單程式正常</label>
+                </div>
+              </td>
+              <td class="empty-cell"></td>
+            </tr>
+            <tr>
+              <td class="POS-header">排程</td>
+              <td class="POS-content">
+                <div class="checkbox-item">
+                  <input type="checkbox" id="check14" /><label for="check14">DBBackup</label>
+                  <input type="checkbox" id="check15" /><label for="check15">電子發票</label>
+                </div>
+                <div class="checkbox-item">
+                  <input type="checkbox" id="check16" /><label for="check16">會員點數</label>
+                  <input type="checkbox" id="check17" /><label for="check17">票券</label>
+                </div>
+              </td>
+              <td class="empty-cell"></td>
+            </tr>
+            <tr>
+              <td class="POS-header">平板</td>
+              <td class="POS-content">
+                <div class="checkbox-item">
+                  <input type="checkbox" id="check18" /><label for="check18">平板授權設定</label>
+                  <input type="checkbox" id="check19" /><label for="check19">加入Teamviewer名單</label>
+                </div>
+              </td>
+              <td class="empty-cell"></td>
+            </tr>
+            <tr>
+              <td class="POS-header">KIOSK</td>
+              <td class="POS-content">
+                <div class="checkbox-item">
+                  <input type="checkbox" id="check20" /><label for="check20">Autykey設定</label>
+                  <input type="checkbox" id="check21" /><label for="check21">店號設定</label>
+                  <input type="checkbox" id="check22" /><label for="check22">加入Teamviewer名單</label>
+                </div>
+                <div class="checkbox-item"><input type="checkbox" id="check23" /><label for="check23">菜單/價格/圖片(商品圖片/LOGO/輪播圖)確認</label></div>
+              </td>
+              <td class="empty-cell"></td>
+            </tr>
+            <tr>
+              <td class="POS-header">UniKDS</td>
+              <td class="POS-content">
+                <div class="checkbox-item"><input type="checkbox" id="check24" /><label for="check24">FindTbox IP 是否正確</label></div>
+                <div class="checkbox-item"><input type="checkbox" id="check25" /><label for="check25">POS中KDS設定IP是否與FindTbox中相同</label></div>
+                <div class="checkbox-item">
+                  是否使用電視：
+                  <input type="checkbox" id="check26" /><label for="check26">否</label>
+                  <input type="checkbox" id="check27" /><label for="check27">是，Uni叫號 / XSign叫號</label>
+                </div>
+                <div class="checkbox-item">
+                  <input type="checkbox" id="check28" /><label for="check28">若使用XSign：</label>
+                  <input type="checkbox" id="check29" /><label for="check29">勾選使用Tbox</label>
+                  <input type="checkbox" id="check30" /><label for="check30">客顯URL</label>
+                </div>
+              </td>
+              <td class="empty-cell"></td>
+            </tr>
+            <tr>
+              <td class="POS-header">XSign叫號機</td>
+              <td class="POS-content">
+                <div class="checkbox-item">
+                  <input type="checkbox" id="check31" /><label for="check31">傳送安裝檔與資料檔</label>
+                  <input type="checkbox" id="check32" /><label for="check32">XSign電視機器碼綁定</label>
+                </div>
+                <div class="checkbox-item">
+                  <input type="checkbox" id="check33" /><label for="check33">BenQTTSDemo 設定</label>
+                  <input type="checkbox" id="check34" /><label for="check34">d/node.js 設定</label>
+                </div>
+                <div class="checkbox-item">
+                  <input type="checkbox" id="check35" /><label for="check35">KDSReader 設定</label>
+                  <input type="checkbox" id="check36" /><label for="check36">加入Teamviewer名單</label>
+                </div>
+              </td>
+              <td class="empty-cell"></td>
+            </tr>
+            <tr>
+              <td class="POS-header">叫號機</td>
+              <td class="POS-content">
+                <div class="checkbox-item">
+                  <input type="checkbox" id="check37" /><label for="check37">傳送UniKDS apk</label>
+                  <input type="checkbox" id="check38" /><label for="check38">安裝UniKDS apk</label>
+                </div>
+                <div class="checkbox-item">
+                  <input type="checkbox" id="check39" /><label for="check39">勾選使用Tbox、訂單叫號</label>
+                  <input type="checkbox" id="check40" /><label for="check40">變更UniKDS角色</label>
+                </div>
+                <div class="checkbox-item"><input type="checkbox" id="check41" /><label for="check41">顯示風格輸入CallingMode tv</label></div>
+                <div class="checkbox-item"><input type="checkbox" id="check42" /><label for="check42">加入Teamviewer名單</label></div>
+              </td>
+              <td class="empty-cell"></td>
+            </tr>
+            <tr>
+              <td class="POS-header"></td>
+              <td class="POS-content"><div class="checkbox-item"><input type="checkbox" id="check43" /><label for="check43"></label></div></td>
+              <td class="empty-cell"></td>
+            </tr>
+            <tr>
+              <td class="POS-header"></td>
+              <td class="POS-content"><div class="checkbox-item"><input type="checkbox" id="check44" /><label for="check44"></label></div></td>
+              <td class="empty-cell"></td>
+            </tr>
+          </table>
 
-              <!-- License -->
-              <tr>
-                <td class="POS-header">License</td>
-                <td class="POS-content">
-                  <div class="checkbox-item">
-                    <input type="checkbox" id="check1" /><label for="check1">POS 軟體是否可打開，正常運作</label>
-                  </div>
-                  <div class="checkbox-item">
-                    <input type="checkbox" id="check2" /><label for="check2">POS 點餐畫面商店名稱(左上角)是否正確</label>
-                  </div>
-                </td>
-                <td class="empty-cell"></td>
-              </tr>
-
-              <!-- POS基本設定 -->
-              <tr>
-                <td class="POS-header">POS基本設定</td>
-                <td class="POS-content">
-                  <div class="checkbox-item">
-                    <input type="checkbox" id="check3" /><label for="check3">店號</label>
-                    <input type="checkbox" id="check4" /><label for="check4">機號</label>
-                    <input type="checkbox" id="check5" /><label for="check5">菜單內容與價格確認</label>
-                  </div>
-                  <div class="checkbox-item">
-                    <input type="checkbox" id="check6" /><label for="check6">POS發票抬頭 – LOGO / 文字 (請擇一圈選)</label>
-                  </div>
-                  <div class="checkbox-item">
-                    <input type="checkbox" id="check7" /><label for="check7">KIOSK 發票抬頭 – 文字</label>
-                  </div>
-                  <div class="checkbox-item">
-                    <input type="checkbox" id="check8" />
-                    <label for="check8">桌況 –
-                      <span id="labelConfirmed" class="status-pill">已確認</span> /
-                      <span id="labelNoTable"   class="status-pill">無桌況</span>
-                    </label>
-                    <input type="checkbox" id="check9" /><label for="check9">加入Teamviewer名單</label>
-                  </div>
-                </td>
-                <td class="empty-cell"></td>
-              </tr>
-
-              <!-- 傳輸接單 -->
-              <tr>
-                <td class="POS-header">傳輸接單</td>
-                <td class="POS-content">
-                  <div class="checkbox-item">
-                    <input type="checkbox" id="check10" />
-                    <label for="check10">傳輸/接單設定方式：
-                      <span id="Separate" class="status-pill">分開</span> /
-                      <span id="Together" class="status-pill">統一</span>
-                    </label>
-                    <input type="checkbox" id="check11" /><label for="check11">加入Teamviewer名單</label>
-                  </div>
-                  <div class="checkbox-item">
-                    <input type="checkbox" id="check12" /><label for="check12">傳輸程式正常</label>
-                    <input type="checkbox" id="check13" /><label for="check13">接單程式正常</label>
-                  </div>
-                </td>
-                <td class="empty-cell"></td>
-              </tr>
-
-              <!-- 排程 -->
-              <tr>
-                <td class="POS-header">排程</td>
-                <td class="POS-content">
-                  <div class="checkbox-item">
-                    <input type="checkbox" id="check14" /><label for="check14">DBBackup</label>
-                    <input type="checkbox" id="check15" /><label for="check15">電子發票</label>
-                  </div>
-                  <div class="checkbox-item">
-                    <input type="checkbox" id="check16" /><label for="check16">會員點數</label>
-                    <input type="checkbox" id="check17" /><label for="check17">票券</label>
-                  </div>
-                </td>
-                <td class="empty-cell"></td>
-              </tr>
-
-              <!-- 平板 -->
-              <tr>
-                <td class="POS-header">平板</td>
-                <td class="POS-content">
-                  <div class="checkbox-item">
-                    <input type="checkbox" id="check18" /><label for="check18">平板授權設定</label>
-                    <input type="checkbox" id="check19" /><label for="check19">加入Teamviewer名單</label>
-                  </div>
-                </td>
-                <td class="empty-cell"></td>
-              </tr>
-
-              <!-- KIOSK -->
-              <tr>
-                <td class="POS-header">KIOSK</td>
-                <td class="POS-content">
-                  <div class="checkbox-item">
-                    <input type="checkbox" id="check20" /><label for="check20">Autykey設定</label>
-                    <input type="checkbox" id="check21" /><label for="check21">店號設定</label>
-                    <input type="checkbox" id="check22" /><label for="check22">加入Teamviewer名單</label>
-                  </div>
-                  <div class="checkbox-item">
-                    <input type="checkbox" id="check23" /><label for="check23">菜單/價格/圖片(商品圖片/LOGO/輪播圖)確認</label>
-                  </div>
-                </td>
-                <td class="empty-cell"></td>
-              </tr>
-
-              <!-- UniKDS -->
-              <tr>
-                <td class="POS-header">UniKDS</td>
-                <td class="POS-content">
-                  <div class="checkbox-item">
-                    <input type="checkbox" id="check24" /><label for="check24">FindTbox IP 是否正確</label>
-                  </div>
-                  <div class="checkbox-item">
-                    <input type="checkbox" id="check25" /><label for="check25">POS中KDS設定IP是否與FindTbox中相同</label>
-                  </div>
-                  <div class="checkbox-item">
-                    是否使用電視：
-                    <input type="checkbox" id="check26" /><label for="check26">否</label>
-                    <input type="checkbox" id="check27" /><label for="check27">是，Uni叫號 / XSign叫號</label>
-                  </div>
-                  <div class="checkbox-item">
-                    <input type="checkbox" id="check28" /><label for="check28">若使用XSign：</label>
-                    <input type="checkbox" id="check29" /><label for="check29">勾選使用Tbox</label>
-                    <input type="checkbox" id="check30" /><label for="check30">客顯URL</label>
-                  </div>
-                </td>
-                <td class="empty-cell"></td>
-              </tr>
-
-              <!-- XSign叫號機 -->
-              <tr>
-                <td class="POS-header">XSign叫號機</td>
-                <td class="POS-content">
-                  <div class="checkbox-item">
-                    <input type="checkbox" id="check31" /><label for="check31">傳送安裝檔與資料檔</label>
-                    <input type="checkbox" id="check32" /><label for="check32">XSign電視機器碼綁定</label>
-                  </div>
-                  <div class="checkbox-item">
-                    <input type="checkbox" id="check33" /><label for="check33">BenQTTSDemo 設定</label>
-                    <input type="checkbox" id="check34" /><label for="check34">d/node.js 設定</label>
-                  </div>
-                  <div class="checkbox-item">
-                    <input type="checkbox" id="check35" /><label for="check35">KDSReader 設定</label>
-                    <input type="checkbox" id="check36" /><label for="check36">加入Teamviewer名單</label>
-                  </div>
-                </td>
-                <td class="empty-cell"></td>
-              </tr>
-
-              <!-- 叫號機 -->
-              <tr>
-                <td class="POS-header">叫號機</td>
-                <td class="POS-content">
-                  <div class="checkbox-item">
-                    <input type="checkbox" id="check37" /><label for="check37">傳送UniKDS apk</label>
-                    <input type="checkbox" id="check38" /><label for="check38">安裝UniKDS apk</label>
-                  </div>
-                  <div class="checkbox-item">
-                    <input type="checkbox" id="check39" /><label for="check39">勾選使用Tbox、訂單叫號</label>
-                    <input type="checkbox" id="check40" /><label for="check40">變更UniKDS角色</label>
-                  </div>
-                  <div class="checkbox-item">
-                    <input type="checkbox" id="check41" /><label for="check41">顯示風格輸入CallingMode tv</label>
-                  </div>
-                  <div class="checkbox-item">
-                    <input type="checkbox" id="check42" /><label for="check42">加入Teamviewer名單</label>
-                  </div>
-                </td>
-                <td class="empty-cell"></td>
-              </tr>
-
-              <!-- 空白備用列 -->
-              <tr>
-                <td class="POS-header"></td>
-                <td class="POS-content">
-                  <div class="checkbox-item"><input type="checkbox" id="check43" /><label for="check43">null</label></div>
-                </td>
-                <td class="empty-cell"></td>
-              </tr>
-              <tr>
-                <td class="POS-header"></td>
-                <td class="POS-content">
-                  <div class="checkbox-item"><input type="checkbox" id="check44" /><label for="check44">null</label></div>
-                </td>
-                <td class="empty-cell"></td>
-              </tr>
-
-            </table>
-            <!-- ════════════════════════════════
-                 第二頁：金流檢核 + 軟體流程測試
-                 ════════════════════════════════ -->
-
-            <!-- ── 金流檢核 ── -->
-            <table class="section-gap-page">
-              <tr class="header-row">
-                <td class="scope">範圍</td>
-                <td class="detail">金流檢核內容</td>
-                <td class="label-cell2">POS</td>
-                <td class="label-cell2">KIOSK</td>
-                <td class="label-cell2">備註</td>
-              </tr>
-              <tr>
-                <td class="POS-header" rowspan="10">金流</td>
-                <td class="POS-content">
-                  <div>確認扣款統編 – Linepay</div>
-                  <div>串接方式 : 固定IP / 金流Gateway（擇一圈選）</div>
-                </td>
-                <td class="col-check"></td><td class="col-check"></td><td class="empty-cell"></td>
-              </tr>
-              <tr><td class="POS-content">確認扣款統編 – 街口</td><td class="col-check"></td><td class="col-check"></td><td class="empty-cell"></td></tr>
-              <tr><td class="POS-content">確認扣款統編 – 悠遊卡/一卡通</td><td class="col-check"></td><td class="col-check"></td><td class="empty-cell"></td></tr>
-              <tr><td class="POS-content">確認扣款統編 – 台灣Pay</td><td class="col-check"></td><td class="col-check"></td><td class="empty-cell"></td></tr>
-              <tr><td class="POS-content">確認扣款統編 – 悠遊付</td><td class="col-check"></td><td class="col-check"></td><td class="empty-cell"></td></tr>
-              <tr><td class="POS-content">確認扣款統編 – 全盈Pay</td><td class="col-check"></td><td class="col-check"></td><td class="empty-cell"></td></tr>
-              <tr><td class="POS-content">確認扣款統編 – PXPay</td><td class="col-check"></td><td class="col-check"></td><td class="empty-cell"></td></tr>
-              <tr><td class="POS-content">確認扣款統編 – icash Pay</td><td class="col-check"></td><td class="col-check"></td><td class="empty-cell"></td></tr>
-              <tr>
-                <td class="POS-content">
-                  <div>確認扣款統編 – 信用卡</div>
-                  <div>銀行：　　　　　　　卡機型號：</div>
-                </td>
-                <td class="col-check"></td><td class="col-check"></td><td class="empty-cell"></td>
-              </tr>
-              <tr><td class="POS-content">&nbsp;</td><td class="col-check"></td><td class="col-check"></td><td class="empty-cell"></td></tr>
-            </table>
-
-            <!-- ── 軟體流程測試 ── -->
-            <table>
-              <tr class="header-row">
-                <td class="scope">範圍</td>
-                <td class="detail">軟體檢核內容</td>
-                <td class="label-cell2">檢核</td>
-                <td class="label-cell2">備註</td>
-              </tr>
-              <tr>
-                <td class="POS-header" rowspan="14">完整軟體<br>流程測試</td>
-                <td class="POS-content">POS正常點餐　廚房出單/KDS顯示　叫號機叫號</td>
-                <td class="col-check-wide"></td><td class="empty-cell"></td>
-              </tr>
-              <tr><td class="POS-content-1">KIOSK正常點餐　門市POS接單　廚房出單/KDS顯示　叫號機叫號</td><td class="col-check-wide"></td><td class="empty-cell"></td></tr>
-              <tr><td class="POS-content">KIOSK帶入會員點餐(核銷票券)　門市POS接單　廚房出單/KDS顯示　叫號機叫號</td><td class="col-check-wide"></td><td class="empty-cell"></td></tr>
-              <tr><td class="POS-content">快一點前結線上點餐　門市POS提單結帳　廚房出單/KDS顯示　叫號機叫號</td><td class="col-check-wide"></td><td class="empty-cell"></td></tr>
-              <tr><td class="POS-content">快一點前結帶入會員線上點餐　門市POS提單結帳　廚房出單/KDS顯示　叫號機叫號</td><td class="col-check-wide"></td><td class="empty-cell"></td></tr>
-              <tr><td class="POS-content">快一點線上後結點餐　廚房出單/KDS顯示　POS結帳</td><td class="col-check-wide"></td><td class="empty-cell"></td></tr>
-              <tr><td class="POS-content">手機平板正常點餐　門市POS接單　廚房出單/KDS顯示　POS結帳</td><td class="col-check-wide"></td><td class="empty-cell"></td></tr>
-              <tr><td class="POS-content">POS成功帶入會員資料、積兌點</td><td class="col-check-wide"></td><td class="empty-cell"></td></tr>
-              <tr><td class="POS-content">POS成功銷售/核銷票券</td><td class="col-check-wide"></td><td class="empty-cell"></td></tr>
-              <tr><td class="POS-content">POS重點促銷測試</td><td class="col-check-wide"></td><td class="empty-cell"></td></tr>
-              <tr><td class="POS-content">快一點會員註冊流程</td><td class="col-check-wide"></td><td class="empty-cell"></td></tr>
-              <tr><td class="POS-content">KIOSK會員註冊流程</td><td class="col-check-wide"></td><td class="empty-cell"></td></tr>
-              <tr><td class="POS-content">&nbsp;</td><td class="col-check-wide"></td><td class="empty-cell"></td></tr>
-              <tr><td class="POS-content">&nbsp;</td><td class="col-check-wide"></td><td class="empty-cell"></td></tr>
-            </table>
-
-
-            <!-- ════════════════════════════════
-                 第三頁：正式使用檢核 + 備忘錄 + 簽名
-                 ════════════════════════════════ -->
-
-            <!-- ── 正式使用檢核 ── -->
-            <table>
-              <tr class="header-row">
-                <td class="scope">範圍</td>
-                <td class="detail">正式使用檢核內容</td>
-                <td class="label-cell2">檢核</td>
-                <td class="label-cell2">備註</td>
-              </tr>
-              <tr>
-                <td class="POS-header" rowspan="5">上線</td>
-                <td class="POS-content">清機（執行清帳SQL）</td>
-                <td class="col-check-wide"></td><td class="empty-cell"></td>
-              </tr>
-              <tr>
-                <td class="POS-content">執行交班</td>
-                <td class="col-check-wide"></td><td class="empty-cell"></td>
-              </tr>
-              <tr>
-                <td class="POS-content">
-                  <div style="font-weight:bold;margin-bottom:3px;">POS轉換正式發票</div>
-                  <div class="checkbox-item"><input type="checkbox" id="check45" /><label for="check45">門市DB清除發票取號/購入紀錄/號碼</label></div>
-                  <div class="checkbox-item"><input type="checkbox" id="check46" /><label for="check46">POS設定正式發票</label></div>
-                  <div class="checkbox-item"><input type="checkbox" id="check47" /><label for="check47">POS正式發票正常開立</label></div>
-                </td>
-                <td class="col-check-wide"></td><td class="empty-cell"></td>
-              </tr>
-              <tr>
-                <td class="POS-content">
-                  <div style="font-weight:bold;margin-bottom:3px;">KIOSK轉換正式發票</div>
-                  <div class="checkbox-item"><input type="checkbox" id="check48" /><label for="check48">清除全通路發票取號/購入/號碼</label></div>
-                  <div class="checkbox-item"><input type="checkbox" id="check49" /><label for="check49">全通路設定正式發票</label></div>
-                  <div class="checkbox-item"><input type="checkbox" id="check50" /><label for="check50">KIOSK正式發票正常開立</label></div>
-                </td>
-                <td class="col-check-wide"></td><td class="empty-cell"></td>
-              </tr>
-              <tr><td class="POS-content">&nbsp;</td><td class="col-check-wide"></td><td class="empty-cell"></td></tr>
-
-              <tr>
-                <td class="POS-header" rowspan="5">其他</td>
-                <td class="POS-content">&nbsp;</td><td class="col-check-wide"></td><td class="empty-cell"></td>
-              </tr>
-              <tr><td class="POS-content">&nbsp;</td><td class="col-check-wide"></td><td class="empty-cell"></td></tr>
-              <tr><td class="POS-content">&nbsp;</td><td class="col-check-wide"></td><td class="empty-cell"></td></tr>
-              <tr><td class="POS-content">&nbsp;</td><td class="col-check-wide"></td><td class="empty-cell"></td></tr>
-              <tr><td class="POS-content">&nbsp;</td><td class="col-check-wide"></td><td class="empty-cell"></td></tr>
-            </table>
-
-            <!-- ── 上線狀況備忘錄 ── -->
-            <table>
-              <tr>
-                <td class="scope" colspan="4" style="text-align:left;padding:5px 8px;">上線狀況備忘錄</td>
-              </tr>
-              <tr>
-                <td colspan="4" style="height:60px;vertical-align:top;">&nbsp;</td>
-              </tr>
-            </table>
-
-            <!-- ── 簽名區 ── -->
-            <table class="sig-table">
-              <tr>
-                <td class="label-cell sig-label">上線人員簽名</td>
-                <td class="sig-value"></td>
-                <td class="sig-spacer"></td>
-                <td class="label-cell sig-label">客戶簽名</td>
-                <td class="sig-value"></td>
-              </tr>
-              <tr>
-                <td class="label-cell sig-label">部門主管簽名</td>
-                <td class="sig-value"></td>
-                <td class="sig-spacer"></td>
-                <td></td>
-                <td></td>
-              </tr>
-            </table>
-
-          </div><!-- end Checklist-table -->
-        </td>
-      </tr>
+        </div>
+      </td></tr>
     </tbody>
+  </table>
 
+
+  <!-- ════════════════════════════════
+       第二頁：金流檢核 + 軟體流程測試
+       ════════════════════════════════ -->
+  <table class="print-container page-break-before">
+    <thead>
+      <tr><td>
+        <div class="title">
+          <img src="./圖片1.png" class="title-icon" />
+          <h1>門市軟體上線檢核表</h1>
+        </div>
+      </td></tr>
+    </thead>
+    <tfoot>
+      <tr><td>
+        <footer class="form-footer">
+          <div class="footer-left">表單編號：WiXtar-SF-007　版序：V01</div>
+          <div class="footer-center">第 2 頁，共 3 頁</div>
+          <div class="footer-right">實施日期：2024/07/30</div>
+        </footer>
+      </td></tr>
+    </tfoot>
+    <tbody>
+      <tr><td>
+        <div class="Checklist-table">
+
+          <!-- 金流檢核 -->
+          <table>
+            <tr class="header-row">
+              <td class="scope">範圍</td>
+              <td class="detail">金流檢核內容</td>
+              <td class="label-cell3">POS</td>
+              <td class="label-cell3">KIOSK</td>
+              <td class="label-cell2">備註</td>
+            </tr>
+            <tr>
+              <td class="POS-header" rowspan="10">金流</td>
+              <td class="payment-table">
+                <div>確認扣款統編 – Linepay</div>
+                <div>串接方式 : 固定IP / 金流Gateway（擇一圈選）</div>
+              </td>
+              <td class="col-check"></td><td class="col-check"></td><td class="empty-cell"></td>
+            </tr>
+            <tr class="payment-table"><td class="payment-table">確認扣款統編 – 街口</td><td class="col-check"></td><td class="col-check"></td><td class="empty-cell"></td></tr>
+            <tr class="payment-table"><td class="payment-table">確認扣款統編 – 悠遊卡/一卡通</td><td class="col-check"></td><td class="col-check"></td><td class="empty-cell"></td></tr>
+            <tr class="payment-table"><td class="payment-table">確認扣款統編 – 台灣Pay</td><td class="col-check"></td><td class="col-check"></td><td class="empty-cell"></td></tr>
+            <tr class="payment-table"><td class="payment-table">確認扣款統編 – 悠遊付</td><td class="col-check"></td><td class="col-check"></td><td class="empty-cell"></td></tr>
+            <tr class="payment-table"><td class="payment-table">確認扣款統編 – 全盈Pay</td><td class="col-check"></td><td class="col-check"></td><td class="empty-cell"></td></tr>
+            <tr class="payment-table"><td class="payment-table">確認扣款統編 – PXPay</td><td class="col-check"></td><td class="col-check"></td><td class="empty-cell"></td></tr>
+            <tr class="payment-table"><td class="payment-table">確認扣款統編 – icash Pay</td><td class="col-check"></td><td class="col-check"></td><td class="empty-cell"></td></tr>
+            <tr class="payment-table">
+              <td class="payment-table">
+                <div>確認扣款統編 – 信用卡</div>
+                <div>銀行：　　　　　　　卡機型號：</div>
+              </td>
+              <td class="col-check"></td><td class="col-check"></td><td class="empty-cell"></td>
+            </tr>
+            <tr class="payment-table"><td class="payment-table">&nbsp;</td><td class="col-check"></td><td class="col-check"></td><td class="empty-cell"></td></tr>
+          </table>
+
+          <!-- 軟體流程測試 -->
+          <table>
+            <tr class="header-row">
+              <td class="scope">範圍</td>
+              <td class="detail">軟體檢核內容</td>
+              <td class="label-cell2">檢核</td>
+              <td class="label-cell2">備註</td>
+            </tr>
+            <tr>
+              <td class="POS-header" rowspan="14">完整軟體<br>流程測試</td>
+              <td class="payment-table">POS正常點餐　廚房出單/KDS顯示　叫號機叫號</td>
+              <td class="col-check-wide"></td><td class="empty-cell"></td>
+            </tr>
+            <tr class="payment-table"><td class="POS-content">KIOSK正常點餐　門市POS接單　廚房出單/KDS顯示　叫號機叫號</td><td class="col-check-wide"></td><td class="empty-cell"></td></tr>
+            <tr class="payment-table"><td class="POS-content">KIOSK帶入會員點餐(核銷票券)　門市POS接單　廚房出單/KDS顯示　叫號機叫號</td><td class="col-check-wide"></td><td class="empty-cell"></td></tr>
+            <tr class="payment-table"><td class="POS-content">快一點前結線上點餐　門市POS提單結帳　廚房出單/KDS顯示　叫號機叫號</td><td class="col-check-wide"></td><td class="empty-cell"></td></tr>
+            <tr class="payment-table"><td class="POS-content">快一點前結帶入會員線上點餐　門市POS提單結帳　廚房出單/KDS顯示　叫號機叫號</td><td class="col-check-wide"></td><td class="empty-cell"></td></tr>
+            <tr class="payment-table"><td class="POS-content">快一點線上後結點餐　廚房出單/KDS顯示　POS結帳</td><td class="col-check-wide"></td><td class="empty-cell"></td></tr>
+            <tr class="payment-table"><td class="POS-content">手機平板正常點餐　門市POS接單　廚房出單/KDS顯示　POS結帳</td><td class="col-check-wide"></td><td class="empty-cell"></td></tr>
+            <tr class="payment-table"><td class="POS-content">POS成功帶入會員資料、積兌點</td><td class="col-check-wide"></td><td class="empty-cell"></td></tr>
+            <tr class="payment-table"><td class="POS-content">POS成功銷售/核銷票券</td><td class="col-check-wide"></td><td class="empty-cell"></td></tr>
+            <tr class="payment-table"><td class="POS-content">POS重點促銷測試</td><td class="col-check-wide"></td><td class="empty-cell"></td></tr>
+            <tr class="payment-table"><td class="POS-content">快一點會員註冊流程</td><td class="col-check-wide"></td><td class="empty-cell"></td></tr>
+            <tr class="payment-table"><td class="POS-content">KIOSK會員註冊流程</td><td class="col-check-wide"></td><td class="empty-cell"></td></tr>
+            <tr class="payment-table"><td class="POS-content">&nbsp;</td><td class="col-check-wide"></td><td class="empty-cell"></td></tr>
+            <tr class="payment-table"><td class="POS-content">&nbsp;</td><td class="col-check-wide"></td><td class="empty-cell"></td></tr>
+          </table>
+
+        </div>
+      </td></tr>
+    </tbody>
+  </table>
+
+
+  <!-- ════════════════════════════════
+       第三頁：正式使用檢核 + 備忘錄 + 簽名
+       ════════════════════════════════ -->
+  <table class="print-container page-break-before">
+    <thead>
+      <tr><td>
+        <div class="title">
+          <img src="./圖片1.png" class="title-icon" />
+          <h1>門市軟體上線檢核表</h1>
+        </div>
+      </td></tr>
+    </thead>
+    <tfoot>
+      <tr><td>
+        <footer class="form-footer">
+          <div class="footer-left">表單編號：WiXtar-SF-007　版序：V01</div>
+          <div class="footer-center">第 3 頁，共 3 頁</div>
+          <div class="footer-right">實施日期：2024/07/30</div>
+        </footer>
+      </td></tr>
+    </tfoot>
+    <tbody>
+      <tr><td>
+        <div class="Checklist-table">
+
+          <!-- 正式使用檢核 -->
+          <table>
+            <tr class="header-row">
+              <td class="scope">範圍</td>
+              <td class="detail">正式使用檢核內容</td>
+              <td class="label-cell2">檢核</td>
+              <td class="label-cell2">備註</td>
+            </tr>
+            <tr>
+              <td class="POS-header" rowspan="5">上線</td>
+              <td class="POS-content">清機（執行清帳SQL）</td>
+              <td class="col-check-wide"></td><td class="empty-cell"></td>
+            </tr>
+            <tr>
+              <td class="POS-content">執行交班</td>
+              <td class="col-check-wide"></td><td class="empty-cell"></td>
+            </tr>
+            <tr>
+              <td class="POS-content">
+                <div style="font-weight:bold;margin-bottom:3px;">POS轉換正式發票</div>
+                <div class="checkbox-item"><input type="checkbox" id="check45" /><label for="check45">門市DB清除發票取號/購入紀錄/號碼</label></div>
+                <div class="checkbox-item"><input type="checkbox" id="check46" /><label for="check46">POS設定正式發票</label></div>
+                <div class="checkbox-item"><input type="checkbox" id="check47" /><label for="check47">POS正式發票正常開立</label></div>
+              </td>
+              <td class="col-check-wide"></td><td class="empty-cell"></td>
+            </tr>
+            <tr>
+              <td class="POS-content">
+                <div style="font-weight:bold;margin-bottom:3px;">KIOSK轉換正式發票</div>
+                <div class="checkbox-item"><input type="checkbox" id="check48" /><label for="check48">清除全通路發票取號/購入/號碼</label></div>
+                <div class="checkbox-item"><input type="checkbox" id="check49" /><label for="check49">全通路設定正式發票</label></div>
+                <div class="checkbox-item"><input type="checkbox" id="check50" /><label for="check50">KIOSK正式發票正常開立</label></div>
+              </td>
+              <td class="col-check-wide"></td><td class="empty-cell"></td>
+            </tr>
+            <tr><td class="POS-content">&nbsp;</td><td class="col-check-wide"></td><td class="empty-cell"></td></tr>
+            <tr>
+              <td class="POS-header" rowspan="5">其他</td>
+              <td class="POS-content">&nbsp;</td><td class="col-check-wide"></td><td class="empty-cell"></td>
+            </tr>
+            <tr><td class="POS-content">&nbsp;</td><td class="col-check-wide"></td><td class="empty-cell"></td></tr>
+            <tr><td class="POS-content">&nbsp;</td><td class="col-check-wide"></td><td class="empty-cell"></td></tr>
+            <tr><td class="POS-content">&nbsp;</td><td class="col-check-wide"></td><td class="empty-cell"></td></tr>
+            <tr><td class="POS-content">&nbsp;</td><td class="col-check-wide"></td><td class="empty-cell"></td></tr>
+          </table>
+
+          <!-- 上線狀況備忘錄 -->
+          <table>
+            <tr>
+              <td class="scope" colspan="4" style="text-align:left;padding:5px 8px;">上線狀況備忘錄</td>
+            </tr>
+            <tr>
+              <td colspan="4" style="height:250px;vertical-align:top;">&nbsp;</td>
+            </tr>
+          </table>
+
+          <!-- 簽名區 -->
+          <table class="sig-table">
+            <tr>
+              <td class="label-cell sig-label">上線人員簽名</td>
+              <td class="sig-value"></td>
+              <td class="label-cell sig-label">客戶簽名</td>
+              <td class="sig-value"></td>
+            </tr>
+            <tr>
+              <td class="label-cell sig-label">部門主管簽名</td>
+              <td class="sig-value"></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td colspan="4" style="height:60px;vertical-align:top; border: none !important;">&nbsp;</td>
+            </tr>
+          </table>
+
+        </div>
+      </td></tr>
+    </tbody>
   </table>
 
   <script src="./pageB.js"></script>
